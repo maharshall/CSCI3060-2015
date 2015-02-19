@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <iostream>
+#include <sstream>
+#include "login.cpp"
+#include "create.cpp"
+//#include "delete.cpp"
+//#include "buy.cpp"
+//#include "sell.cpp"
+//#include "refund.cpp"
+//#include "logout.cpp"
