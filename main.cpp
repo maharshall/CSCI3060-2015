@@ -4,8 +4,11 @@
  */
 
 #include "main.h"
+ vector <string> userdata;
 
 int main() {
+	//
+	pull(userdata,0);
 
 	//login here
 	//set these values based on user type

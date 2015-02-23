@@ -8,3 +8,4 @@
 #include "sell.cpp"
 #include "refund.cpp"
 #include "logout.cpp"
+#include "pull.cpp"
