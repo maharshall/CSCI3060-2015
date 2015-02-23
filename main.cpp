@@ -36,7 +36,7 @@ int main() {
 
 		switch(in) {
 			case 0:
-				//logout();
+				logout();
 				cout << "Thank you for using Llama TSS. Goodbye." << endl;
 				return 0;
 			case 1:
@@ -52,13 +52,21 @@ int main() {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
 			case 3:
-				//buy();
+				if(buy) {
+					buy();
+				}
 			case 4:
-				//sell();
+				if(sell) {
+					sell();	
+				}
 			case 5:
-				//refund();
+				if(admin == true) {
+					refund();
+				} else {
+					cout << "Error: you do not have permission to do that." << endl;
+				}
 			case 6:
-				//addcredit(admin);
+				addcredit(admin);
 			default:
 				cout << "Invalid input." << endl;
 			break;
