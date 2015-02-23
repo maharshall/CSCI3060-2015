@@ -15,7 +15,6 @@ int login() {
 
 	cout << "Enter your username: ";
 	getline(cin, username);
-	username.append("_");
 
 	infile.open("users.txt", ios::in);
 	while(getline(infile, line)) {

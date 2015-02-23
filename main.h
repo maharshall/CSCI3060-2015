@@ -3,7 +3,7 @@
 #include <sstream>
 #include "login.cpp"
 #include "create.cpp"
-//#include "delete.cpp"
+#include "llamaDelete.cpp"
 //#include "buy.cpp"
 //#include "sell.cpp"
 //#include "refund.cpp"

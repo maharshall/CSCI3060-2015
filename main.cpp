@@ -8,12 +8,15 @@
 int main() {
 
 	//login here
-	cout << "Welcome to TSS. Please login." << endl;
+	//set these values based on user type
+	bool buy = false; bool sell = false; bool admin = true;
+	cout << "Welcome to Llama TSS. Please login." << endl;
 	if(login() != 1) {
 		cout << "Error: username not found." << endl;
 		return 0;
 	}
 
+	//check username for type and set bools
 
 	string input = "";
 	int in = -1;
@@ -34,12 +37,20 @@ int main() {
 		switch(in) {
 			case 0:
 				//logout();
-				cout << "Thank you for using TSS. Goodbye." << endl;
+				cout << "Thank you for using Llama TSS. Goodbye." << endl;
 				return 0;
 			case 1:
-				create();
+				if(admin == true) {
+					create();
+				} else {
+					cout << "Error: you do not have permission to do that." << endl;
+				}
 			case 2:
-				//delete();
+				if(admin == true) {
+					llamaDelete();
+				} else {
+					cout << "Error: you do not have permission to do that." << endl;
+				}
 			case 3:
 				//buy();
 			case 4:
@@ -47,7 +58,7 @@ int main() {
 			case 5:
 				//refund();
 			case 6:
-				//addcredit();
+				//addcredit(admin);
 			default:
 				cout << "Invalid input." << endl;
 			break;

@@ -1,6 +1,6 @@
 /*
  * Creates a new user with purchasing and/or selling privileges
- * Writes to the users.txt file in the format UUUUUUUUUUUUUUU_TT_CCCCCCCCC
+ * Writes to the daily.txt file in the format UUUUUUUUUUUUUUU_TT_CCCCCCCCC
  */
 
 #include <stdio.h>
@@ -44,10 +44,10 @@ void create() {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-	//write to users.txt
-	outfile.open("users.txt", ios::out | ios::app);
-		outfile << username << string(15-username.length(), '_') << "_" << type << "_" << string(9, '0') << endl;
-		cout << "User was created successfully" << endl;
+	//write to daily.txt
+	outfile.open("daily.txt", ios::out | ios::app);
+		outfile << "01_" << username << string(15-username.length(), '-') << "_" << type << "_" << string(9, '0') << endl;
+		cout << "User was created successfully." << endl;
 	outfile.close();
 	} else {
 		cout << "User was not created." << endl;
