@@ -9,8 +9,8 @@
 
 int main() {
 	//
-	pull(userdata,0);
-	pull(tickdata,1);
+  pull(userdata,0);
+  pull(tickdata,1);
 
 	//login here
 	//set these values based on user type
@@ -46,7 +46,7 @@ int main() {
 				return 0;
 			case 1:
 				if(adminb) {
-					create();
+					create(userdata);
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}

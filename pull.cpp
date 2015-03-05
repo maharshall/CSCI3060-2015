@@ -9,7 +9,7 @@ using namespace std;
 const int col = 3;
 int row=0;
 
-int pull(vector<string> x, int i) {
+int pull(vector<string> &x, int i) {
 	ifstream infile;
 	string line = "", temp = "";
 	char * t;
@@ -38,12 +38,6 @@ int pull(vector<string> x, int i) {
 
 		row++;
 	}
-
-
-	cout<<x[0]<<endl;
-	cout<<x[1]<<endl;
-	cout<<x[2]<<endl;
-	cout<<x[3]<<endl;
 
 	infile.close();
 	
