@@ -35,7 +35,6 @@ void sell() {
 	//take in quantity of tickets
 	quantin: cout << "Enter the amount of tickets: ";
 	getline(cin, str);
-	stringstream stream(str);
    	stream >> quantity;
 	if(quantity > 100) {
 		cout << "Error: ticket quantity cannot exceed 100." << endl;
@@ -48,7 +47,7 @@ void sell() {
 	if(input == "y" || input == "Y") {
 	//write to daily.txt
 	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << /*03_event_seller_tickets_price*/ << endl;
+		outfile << "03_event_seller_tickets_price" << endl;
 		cout << "Event was created successfully." << endl;
 	outfile.close();
 	} else {

@@ -12,7 +12,7 @@ int main() {
 
 	//login here
 	//set these values based on user type
-	bool buy = false; bool sell = false; bool admin = true;
+	bool buyb = false; bool sellb = false; bool adminb = true;
 	cout << "Welcome to Llama TSS. Please login." << endl;
 	if(login() != 1) {
 		cout << "Error: username not found." << endl;
@@ -43,33 +43,33 @@ int main() {
 				cout << "Thank you for using Llama TSS. Goodbye." << endl;
 				return 0;
 			case 1:
-				if(admin == true) {
+				if(adminb) {
 					create();
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
 			case 2:
-				if(admin == true) {
+				if(adminb) {
 					llamaDelete();
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
 			case 3:
-				if(buy) {
+				if(buyb) {
 					buy();
 				}
 			case 4:
-				if(sell) {
+				if(sellb) {
 					sell();	
 				}
 			case 5:
-				if(admin == true) {
+				if(adminb) {
 					refund();
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
 			case 6:
-				addcredit(admin);
+				addcredit(adminb);
 			default:
 				cout << "Invalid input." << endl;
 			break;

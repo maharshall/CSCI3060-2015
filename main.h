@@ -9,3 +9,4 @@
 #include "refund.cpp"
 #include "logout.cpp"
 #include "pull.cpp"
+#include "addcredit.cpp"

@@ -40,7 +40,7 @@ void buy() {
 	if(input == "y" || input == "Y") {
 	//write to daily.txt
 	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << /*04_event_seller_tickets_price*/ << endl;
+		outfile << "04_event_seller_tickets_price" << endl;
 		cout << "Tickets were purchased successfully." << endl;
 	outfile.close();
 	} else {

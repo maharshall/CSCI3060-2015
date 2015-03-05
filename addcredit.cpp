@@ -33,7 +33,7 @@ void addcredit(bool admin) {
 	if(input == "y" || input == "Y") {
 	//write to daily.txt
 	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << /*06_user_type_credit*/ << endl;
+		outfile << "06_user_type_credit" << endl;
 		cout << "Credits were added successfully." << endl;
 	outfile.close();
 	} else {

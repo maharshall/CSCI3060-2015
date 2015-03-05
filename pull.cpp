@@ -5,13 +5,16 @@
 #include <string.h>
 
 using namespace std;
+
 const int col = 3;
 int row=0;
+
 int pull(vector<string> x, int i) {
 	ifstream infile;
 	string line = "", temp = "";
 	char * t;
 
+	// runs a loop to store usertext into a vector.
 	infile.open("users.txt", ios::in);
 	while(getline(infile, line)) {
 
@@ -27,6 +30,5 @@ int pull(vector<string> x, int i) {
 		row++;
 	}
 	infile.close();
-
 	
 }

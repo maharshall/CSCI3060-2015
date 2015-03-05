@@ -36,7 +36,7 @@ void refund() {
 	if(input == "y" || input == "Y") {
 	//write to daily.txt
 	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << /*05_buyer_seller_credit*/ << endl;
+		outfile << "05_buyer_seller_credit" << endl;
 		cout << "Credits were refunded successfully." << endl;
 	outfile.close();
 	} else {
