@@ -77,7 +77,7 @@ int main() {
 				}
                 break;
 			case 6:
-				addcredit(adminb);
+				addcredit(adminb, userdata);
                 break;
 			default:
 				cout << "Invalid input." << endl;

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void addcredit(bool admin) {
+void addcredit(bool admin, vector<string> users) {
 	string user = "", input = "", str = "";
 	int credit = 0;
 	ofstream outfile;
@@ -18,7 +18,15 @@ void addcredit(bool admin) {
 		//take in username
 		userin: cout << "Enter the username of the account you wish to add credit to: ";
 		getline(cin, user);
-		//find user
+		for(int i = 0; i < users.size(); i+=3) {
+            if(user == users[i]){
+                break;
+            }
+            if(i+3 >= users.size()){
+                cout << "Error: user not found." << endl;
+                goto userin;
+            }
+        }   
 	}
 
 	//take in credit amount

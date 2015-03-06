@@ -1,4 +1,6 @@
-//TODO: yes
+/*
+ * Prints the end of transaction pattern to the daily.txt file
+ */
 
 
 #include <stdio.h>
@@ -8,6 +10,6 @@
 using namespace std;
 
 
-int logout (){
-	
+void logout (){
+    //print to daily transaction file	
 }
