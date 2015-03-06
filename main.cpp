@@ -50,30 +50,38 @@ int main() {
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
+                break;
 			case 2:
 				if(adminb) {
 					llamaDelete();
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
+                break;
 			case 3:
 				if(buyb) {
-					buy();
-				}
+					buy(tickdata, userdata);
+				} else {
+                    cout << "Error: you do not have permission to do that." << endl;
+                }
+                break;
 			case 4:
 				if(sellb) {
 					sell();	
-				}
+				}break;
 			case 5:
 				if(adminb) {
 					refund();
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}
+                break;
 			case 6:
 				addcredit(adminb);
+                break;
 			default:
 				cout << "Invalid input." << endl;
+                break;
 			break;
 		}
 	}

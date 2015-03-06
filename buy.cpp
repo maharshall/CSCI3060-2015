@@ -39,7 +39,7 @@ void buy(vector<string> tickets, vector<string> users) {
         if(seller == users[i]){
             break;
         }
-        if(i+3 >= users.size(){
+        if(i+3 >= users.size()){
             cout << "Error: seller not found." << endl;
             goto sellerin;
         }
@@ -58,7 +58,10 @@ void buy(vector<string> tickets, vector<string> users) {
     //check to see requested amound does not exceed availability
     for(int i = 0; i < tickets.size(); i+=3 ){
         if(event == tickets[i]){
-            if(quantity > tickdata[i+2]){
+            str = tickets[i+2];
+            int available = 0;
+            stream >> available;
+            if(quantity > available){
                 cout << "Error: ticket quantity exceeds availability." << endl;
                 goto quantin;
             }
@@ -71,7 +74,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	if(input == "y" || input == "Y") {
 	//write to daily.txt
 	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << "04_" << event << string(25-event.length(), '-' << "_" << seller << string(15-seller.length(), '-') << quantity << "_" << price  << endl;
+	//	outfile << "04_" << event << string(25-event.length()), '-' << "_" << seller << string(15-seller.length(), '-') << quantity << "_" << price  << endl;
 		cout << "Tickets were purchased successfully." << endl;
 	outfile.close();
 	} else {
