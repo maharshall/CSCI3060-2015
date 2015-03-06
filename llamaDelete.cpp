@@ -18,13 +18,6 @@ void llamaDelete() {
 	getline(cin, username);
 
 	//check to see if user exists and is not self
-	infile.open("users.txt", ios::in);
-	while(getline(infile, line)) {
-		if(line.find(username) == string::npos) {
-			//check that logged in user is not being deleted
-		}
-	}
-	infile.close();
 
 	cout << "Are you sure you want to delete this user? (Y/N):";
 	getline(cin, input);

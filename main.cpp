@@ -71,7 +71,7 @@ int main() {
 				}break;
 			case 5:
 				if(adminb) {
-					refund();
+					refund(userdata);
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}

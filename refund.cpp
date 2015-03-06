@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void refund() {
+void refund(vector<string> users) {
 	string seller = "", buyer = "", input = "", str = "";
 	int credit = 0;
 	ofstream outfile;
@@ -17,14 +17,30 @@ void refund() {
 	//take in buyer username
 	buyerin: cout << "Enter the buyer's username: ";
 	getline(cin, buyer);
-	//find buyer
+	for(int i = 0; i < users.size(); i+=3) {
+        if(buyer == users[i]){
+            break;
+        }
+        if(i+3 >= users.size()){
+            cout << "Error: buyer not found." << endl;
+            goto buyerin;
+        }
+    }
 
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
-	//find seller
+	for(int i = 0; i < users.size(); i+=3) {
+        if(seller == users[i]){
+            break;
+        }
+        if(i+3 >= users.size()){
+            cout << "Error: seller not found." << endl;
+            goto sellerin;
+        }
+    }
 
-	//take in quantity of tickets
+	//take in quantity of credits
 	quantin: cout << "Enter the amount of credit to refund: ";
 	getline(cin, str);
 	stringstream stream(str);
