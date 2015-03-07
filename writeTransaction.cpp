@@ -14,7 +14,7 @@ stringstream conv;
 
 void writeUserTransaction(string code, string user, string type, int _credit) {
     if(code.compare("02") == 0){
-        //do a deletion
+        //do a deletion from users.txt
     } else {
         string credit = "000000000";
         if(_credit != 0){ 

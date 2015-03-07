@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <fstream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -22,18 +22,23 @@ void llamaDelete(vector<string> users, string self) {
     if(username == self){
         cout << "Error: cannot delte self." << endl;
         goto userin;
-    } 
-    if(findUser(users, username) < 0){
+    }
+    int i = findUser(users, username);
+    if(i < 0){
         cout << "Error: user not found." << endl;
         goto userin;
     }
+    type = users[i+1];
+    char buffer[256];
+    strcpy(buffer, users[i+2].c_str());
+    int credit = atoi(buffer);
 
 	cout << "Are you sure you want to delete this user? (Y/N):";
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-        writeUserTransaction("02", username, "", 0);
-		cout << "User was deleted successfully. RIP." << endl;	
+        writeUserTransaction("02", username, type, credit);
+		cout << "User was deleted successfully." << endl;	
 	} else {
 		cout << "User was not deleted." << endl;
 	}

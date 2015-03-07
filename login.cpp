@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include "findUser.cpp"
 #include "writeTransaction.cpp"
