@@ -11,5 +11,5 @@ using namespace std;
 
 
 void logout (){
-    //print to daily transaction file	
+    writeUserTransaction("00", "000000000000000", "00", 0);    
 }

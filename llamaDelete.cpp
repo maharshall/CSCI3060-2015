@@ -24,6 +24,7 @@ void llamaDelete(vector<string> users, string self) {
         goto userin;
     } 
     if(findUser(users, username) < 0){
+        cout << "Error: user not found." << endl;
         goto userin;
     }
 
@@ -31,11 +32,8 @@ void llamaDelete(vector<string> users, string self) {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-		//write to daily.txt
-		outfile.open("daily.txt", ios::out | ios::app);
-		//outfile << "02_" << /*user text here*/ << endl;
-		cout << "User was deleted successfully. RIP." << endl;
-		outfile.close();
+        writeUserTransaction("02", username, "", 0);
+		cout << "User was deleted successfully. RIP." << endl;	
 	} else {
 		cout << "User was not deleted." << endl;
 	}

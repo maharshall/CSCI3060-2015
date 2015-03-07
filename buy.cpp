@@ -20,7 +20,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	for(int i = 0; i < tickets.size(); i+=4) {
         if(event.compare(tickets[i]) == 0){
             str = tickets[i+3];
-            break ; //this is what we want!
+            break ; 
         } 
         if(i+4 >= tickets.size()){
             cout << "Error: event not found." << endl;
@@ -36,6 +36,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
     if(findUser(users, seller) < 0){
+        cout << "Error: seller not found." << endl;
         goto sellerin;
     }    
 
@@ -66,11 +67,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-	//write to daily.txt
-	outfile.open("daily.txt", ios::out | ios::app);
-	//	outfile << "04_" << event << string(25-event.length()), '-' << "_" << seller << string(15-seller.length(), '-') << quantity << "_" << price  << endl;
-		cout << "Tickets were purchased successfully." << endl;
-	outfile.close();
+	   writeSalesTransaction("04", event, seller, quantity, price); 
 	} else {
 		cout << "Tickets were not purchased." << endl;
 	}

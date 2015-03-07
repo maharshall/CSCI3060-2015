@@ -1,8 +1,8 @@
 build:
-	g++ main.cpp
+	g++ main.cpp -o sys 
 
 run:
-	./a.out
+	./sys
 
 clean:
-	rm a.out
+	rm sys

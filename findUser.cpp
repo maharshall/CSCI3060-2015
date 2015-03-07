@@ -1,6 +1,6 @@
 /*
  * Used to find a username in the userdata vector
- * Returns the index if the username in the vector
+ * Returns the index of the username in the vector
  */
 
  #include <stdio.h>
@@ -15,6 +15,5 @@
             return i;
         }
     }
-    cout << "Error: user not found." << endl;
     return -1;
  }

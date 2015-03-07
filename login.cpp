@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include "findUser.cpp"
+#include "writeTransaction.cpp"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ int login(vector<string> users) {
     
     int index = findUser(users, username);
     if(index < 0){
+        cout << "Error: username not found." << endl; 
         goto userin;
     }
     

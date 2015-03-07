@@ -8,13 +8,12 @@
  vector <string> tickdata;
 
 int main() {
-	//
   pull(userdata,0);
   pull(tickdata,1);
 
 	//login here
 	//set these values based on user type
-	bool buyb = false; bool sellb = false; bool adminb = false;
+	bool buyb = false; bool sellb = false; bool adminb = false;   
 	cout << "Welcome to Llama TSS. Please login." << endl;
     login:
     int index = login(userdata);
@@ -55,7 +54,7 @@ int main() {
 			case 0:
 				logout();
 				cout << "Thank you for using Llama TSS. Goodbye." << endl;
-				return 0;
+			    return 0; 
 			case 1:
 				if(adminb) {
 					create(userdata);
@@ -79,7 +78,7 @@ int main() {
                 break;
 			case 4:
 				if(sellb) {
-					sell();	
+					sell(user);	
 				}break;
 			case 5:
 				if(adminb) {
@@ -89,7 +88,7 @@ int main() {
 				}
                 break;
 			case 6:
-				addcredit(adminb, userdata);
+				addcredit(userdata, user);
                 break;
 			default:
 				cout << "Invalid input." << endl;

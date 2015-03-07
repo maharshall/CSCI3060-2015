@@ -24,7 +24,7 @@ void create(vector<string> userdata) {
 	}
 
 	//check to see if user already exists
-    if(findUser(userdata, username) > 0){
+    if(findUser(userdata, username) > -1){
         cout << "Error: username already in use." << endl;
         goto userin;
     }	
@@ -41,12 +41,8 @@ void create(vector<string> userdata) {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-	//write to daily.txt
-	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << "01_" << username << string(15-username.length(), '-') << "_" << type << "_" << string(9, '0') << endl;
-		cout << "User was created successfully." << endl;
-	outfile.close();
-	} else {
+	    writeUserTransaction("01", username, type, 0);
+    } else {
 		cout << "User was not created." << endl;
 	}
 }

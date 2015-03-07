@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void sell() {
+void sell(string seller) {
 	string event = "", input = "", str = "";
 	int price = 0, quantity = 0;
 	ofstream outfile;
@@ -45,11 +45,8 @@ void sell() {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-	//write to daily.txt
-	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << "03_event_seller_tickets_price" << endl;
+        writeSalesTransaction("03", event, seller, quantity, price);
 		cout << "Event was created successfully." << endl;
-	outfile.close();
 	} else {
 		cout << "Event was not created." << endl;
 	}

@@ -18,6 +18,7 @@ void refund(vector<string> users) {
 	buyerin: cout << "Enter the buyer's username: ";
 	getline(cin, buyer);
     if(findUser(users, buyer) < 0){
+        cout << "Error: buyer not found." << endl;
         goto buyerin;
     }	
 
@@ -25,6 +26,7 @@ void refund(vector<string> users) {
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
     if(findUser(users, seller) < 0){
+        cout << "Error: seller not found." << endl;
         goto sellerin;
     }
 
@@ -38,11 +40,8 @@ void refund(vector<string> users) {
 	getline(cin, input);
 
 	if(input == "y" || input == "Y") {
-	//write to daily.txt
-	outfile.open("daily.txt", ios::out | ios::app);
-		outfile << "05_buyer_seller_credit" << endl;
-		cout << "Credits were refunded successfully." << endl;
-	outfile.close();
+	    writeRefundTransaction(buyer, seller, credit);
+	    cout << "Credits were refunded successfully." << endl;;
 	} else {
 		cout << "Credit was not refunded." << endl;
 	}
