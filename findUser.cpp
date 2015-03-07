@@ -8,8 +8,10 @@
  using namespace std;
 
  int findUser(vector<string> users, string username) {
+    int pad = 15 - username.length();
+    username.append(pad, '-');
     for(int i = 0; i < users.size(); i+=3) {
-        if(username == users[i]) {
+        if(username.compare(users[i]) == 0) {
             return i;
         }
     }
