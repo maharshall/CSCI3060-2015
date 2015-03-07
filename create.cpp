@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string.h>
 
 using namespace std;
@@ -25,12 +24,10 @@ void create(vector<string> userdata) {
 	}
 
 	//check to see if user already exists
-	for (int i = 0; i < userdata.size(); i=i+3){
-		if(userdata[i].compare(0,username.length(),username)==0) {
-			cout << "Error: username already in use." << endl;
-			goto userin;
-		}
-	}
+    if(findUser(userdata, username) > 0){
+        cout << "Error: username already in use." << endl;
+        goto userin;
+    }	
 
 	//take in type, reject if not exact match to valid type
 	typein: cout << "Enter the account type (AA, FS, BS, SS): ";

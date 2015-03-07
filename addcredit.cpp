@@ -18,16 +18,10 @@ void addcredit(bool admin, vector<string> users) {
 		//take in username
 		userin: cout << "Enter the username of the account you wish to add credit to: ";
 		getline(cin, user);
-		for(int i = 0; i < users.size(); i+=3) {
-            if(user == users[i]){
-                break;
-            }
-            if(i+3 >= users.size()){
-                cout << "Error: user not found." << endl;
-                goto userin;
-            }
-        }   
-	}
+	    if(findUser(users, user) < 0) {
+            goto userin;
+        }
+    }	
 
 	//take in credit amount
 	creditin: cout << "Enter the amount of credit to add: ";

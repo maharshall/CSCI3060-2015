@@ -9,15 +9,23 @@
 
 using namespace std;
 
-void llamaDelete() {
+void llamaDelete(vector<string> users, string self) {
 	string username = "", type = "", input = "", line = "";
 	ofstream outfile;
 	ifstream infile;
 
+    userin:
 	cout << "Enter the name of the user you wish to delete: ";
 	getline(cin, username);
 
 	//check to see if user exists and is not self
+    if(username == self){
+        cout << "Error: cannot delte self." << endl;
+        goto userin;
+    } 
+    if(findUser(users, username) < 0){
+        goto userin;
+    }
 
 	cout << "Are you sure you want to delete this user? (Y/N):";
 	getline(cin, input);

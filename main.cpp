@@ -14,12 +14,24 @@ int main() {
 
 	//login here
 	//set these values based on user type
-	bool buyb = false; bool sellb = false; bool adminb = true;
+	bool buyb = false; bool sellb = false; bool adminb = false;
 	cout << "Welcome to Llama TSS. Please login." << endl;
-	if(login() != 1) {
-		cout << "Error: username not found." << endl;
-		return 0;
-	}
+    login:
+    int index = login(userdata);
+    string user = userdata[index];
+    string acctype = userdata[index+1];
+    if(acctype == "AA"){
+        buyb = sellb = adminb = true;
+    } else if(acctype == "FS"){
+        buyb = sellb = true;
+    } else if(acctype == "BS"){
+        buyb = true;
+    } else if(acctype == "SS"){
+        sellb = true;
+    } else {
+        cout << "Error: invalid user type found." << endl;
+        goto login;
+    }
 
 	//check username for type and set bools
 
@@ -53,7 +65,7 @@ int main() {
                 break;
 			case 2:
 				if(adminb) {
-					llamaDelete();
+					llamaDelete(userdata, user);
 				} else {
 					cout << "Error: you do not have permission to do that." << endl;
 				}

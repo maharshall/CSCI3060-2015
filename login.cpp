@@ -1,28 +1,28 @@
 /*
  * The first thing done in the system
  * No transactions can be performed before a login
+ * Returns index of username for use in main()
  */
 
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include "findUser.cpp"
 
 using namespace std;
 
-int login() {
-	ifstream infile;
-	string line = "", username = "";;
-
+int login(vector<string> users) {
+	string line = "", username = "";
+    
+    userin:
 	cout << "Enter your username: ";
 	getline(cin, username);
-
-	infile.open("users.txt", ios::in);
-	while(getline(infile, line)) {
-		if(line.find(username) != string::npos) {
-			cout << "Login successfull." << endl;
-			return 1;
-		}
-	}
-	infile.close();
-	return -1;
+    
+    int index = findUser(users, username);
+    if(index < 0){
+        goto userin;
+    }
+    
+    return index;
 }

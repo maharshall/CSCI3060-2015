@@ -17,27 +17,15 @@ void refund(vector<string> users) {
 	//take in buyer username
 	buyerin: cout << "Enter the buyer's username: ";
 	getline(cin, buyer);
-	for(int i = 0; i < users.size(); i+=3) {
-        if(buyer == users[i]){
-            break;
-        }
-        if(i+3 >= users.size()){
-            cout << "Error: buyer not found." << endl;
-            goto buyerin;
-        }
-    }
+    if(findUser(users, buyer) < 0){
+        goto buyerin;
+    }	
 
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
-	for(int i = 0; i < users.size(); i+=3) {
-        if(seller == users[i]){
-            break;
-        }
-        if(i+3 >= users.size()){
-            cout << "Error: seller not found." << endl;
-            goto sellerin;
-        }
+    if(findUser(users, seller) < 0){
+        goto sellerin;
     }
 
 	//take in quantity of credits

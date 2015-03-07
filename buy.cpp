@@ -35,15 +35,9 @@ void buy(vector<string> tickets, vector<string> users) {
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
-    for(int i = 0; i < users.size(); i+=3) {
-        if(seller == users[i]){
-            break;
-        }
-        if(i+3 >= users.size()){
-            cout << "Error: seller not found." << endl;
-            goto sellerin;
-        }
-    }
+    if(findUser(users, seller) < 0){
+        goto sellerin;
+    }    
 
 	//take in quantity of tickets
 	quantin: cout << "Enter the amount of tickets you wish to buy: ";
