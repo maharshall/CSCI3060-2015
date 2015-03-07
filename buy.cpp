@@ -18,7 +18,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	eventin: cout << "Enter the event name: ";
 	getline(cin, event);
 	for(int i = 0; i < tickets.size(); i+=4) {
-        if(event == tickets[i]){
+        if(event.compare(tickets[i]) == 0){
             str = tickets[i+3];
             break ; //this is what we want!
         } 
@@ -51,7 +51,7 @@ void buy(vector<string> tickets, vector<string> users) {
 
     //check to see requested amound does not exceed availability
     for(int i = 0; i < tickets.size(); i+=3 ){
-        if(event == tickets[i]){
+        if(event.compare(tickets[i]) == 0){
             str = tickets[i+2];
             int available = 0;
             stream >> available;
