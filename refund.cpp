@@ -8,7 +8,7 @@
 using namespace std;
 
 void refund(vector<string> users) {
-	string seller = "", buyer = "", input = "", str = "";
+	string seller = "", buyer = "", input = "";
 	int credit = 0;
 	ofstream outfile;
 	ifstream infile;
@@ -31,12 +31,11 @@ void refund(vector<string> users) {
 
 	//take in quantity of credits
 	quantin: cout << "Enter the amount of credit to refund: ";
-	getline(cin, str);
-	stringstream stream(str);
-   	stream >> credit;
+    cin >> credit;	
 
 	cout << "Are you sure you want to refund this amount? (Y/N):";
 	getline(cin, input);
+    getline(cin, input);
 
 	if(input == "y" || input == "Y") {
 	    writeRefundTransaction(buyer, seller, credit);

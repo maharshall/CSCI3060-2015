@@ -49,13 +49,15 @@ void writeSalesTransaction(string code, string event, string seller, int _ticket
     if(_tickets != 0){
         conv << _tickets;
         string t  = conv.str();
-        int i = (3-t.length())-1;
+        int i = (3-t.length());
         tickets.replace(i, t.length(), t);
     }
     if(_price != 0){
+        conv.str(string());
+        conv.clear();
         conv << _price;
         string p  = conv.str();
-        int i = (6-p.length())-1;
+        int i = (6-p.length());
         price.replace(i, p.length(), p);
     }
     outfile.open("daily.txt", ios::out | ios::app);

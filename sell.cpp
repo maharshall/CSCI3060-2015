@@ -8,7 +8,7 @@
 using namespace std;
 
 void sell(string seller) {
-	string event = "", input = "", str = "";
+	string event = "", input = "";
 	int price = 0, quantity = 0;
 	ofstream outfile;
 	ifstream infile;
@@ -23,9 +23,7 @@ void sell(string seller) {
 
 	//take in ticket price
 	pricein: cout << "Enter the ticket price: ";
-	getline(cin, str);
-	stringstream stream(str);
-   	stream >> price;
+    cin >> price;	
 	if(price > 999) {
 		cout << "Error: ticket price cannot exceed 999." << endl;
 		goto pricein;
@@ -33,15 +31,17 @@ void sell(string seller) {
 
 	//take in quantity of tickets
 	quantin: cout << "Enter the amount of tickets: ";
-	getline(cin, str);
-   	stream >> quantity;
+    cin >> quantity;	
 	if(quantity > 100) {
 		cout << "Error: ticket quantity cannot exceed 100." << endl;
 		goto quantin;
 	}
 
 	cout << "Are you sure you want to create this event? (Y/N):";
-	getline(cin, input);
+	//something with cin and getline messing up input?
+    //this fixes the problem
+    getline(cin, input);
+    getline(cin, input);
 
 	if(input == "y" || input == "Y") {
         writeSalesTransaction("03", event, seller, quantity, price);

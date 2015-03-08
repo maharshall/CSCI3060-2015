@@ -41,8 +41,7 @@ void buy(vector<string> tickets, vector<string> users) {
 
 	//take in quantity of tickets
 	quantin: cout << "Enter the amount of tickets you wish to buy: ";
-	getline(cin, str);
-   	stream >> quantity;
+    cin >> quantity;	
     //quantity cannot exceed maximum
 	if(quantity > 4) {
 		cout << "Error: ticket quantity cannot exceed 4." << endl;
@@ -64,6 +63,7 @@ void buy(vector<string> tickets, vector<string> users) {
 
 	cout << "Are you sure you want to buy these tickets? (Y/N):";
 	getline(cin, input);
+    getline(cin, input);
 
 	if(input == "y" || input == "Y") {
 	   writeSalesTransaction("04", event, seller, quantity, price); 

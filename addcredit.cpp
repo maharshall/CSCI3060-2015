@@ -8,7 +8,7 @@
 using namespace std;
 
 void addcredit(vector<string> users, string self) {
-	string user = "", input = "", str = "", type = "";
+	string user = "", input = "", type = "";
 	int credit = 0;
     
     int index = findUser(users, self);
@@ -27,9 +27,7 @@ void addcredit(vector<string> users, string self) {
 
 	//take in credit amount
 	creditin: cout << "Enter the amount of credit to add: ";
-	getline(cin, str);
-	stringstream stream(str);
-   	stream >> credit;
+    cin >> credit;	
     if(credit > 1000){
         cout << "Error: you cannot add this much credit." << endl;
         goto creditin;
@@ -37,6 +35,7 @@ void addcredit(vector<string> users, string self) {
 
 	cout << "Are you sure you want to add this amount? (Y/N):";
 	getline(cin, input);
+    getline(cin, input);
 
 	if(input == "y" || input == "Y") {
         writeUserTransaction("06", user, type, credit);
