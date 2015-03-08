@@ -15,7 +15,10 @@ void sell(string seller) {
 
 	//take in event name
 	eventin: cout << "Enter the event name: ";
-	getline(cin, event);
+	cout<<event<<endl;
+	cin.clear();
+	getline(cin,event);
+
 	if(event.length() > 25) {
 		cout << "Error: event name cannot exceed 25 characters." << endl;
 		goto eventin;
@@ -40,8 +43,7 @@ void sell(string seller) {
 	cout << "Are you sure you want to create this event? (Y/N):";
 	//something with cin and getline messing up input?
     //this fixes the problem
-    getline(cin, input);
-    getline(cin, input);
+    cin>>input;
 
 	if(input == "y" || input == "Y") {
         writeSalesTransaction("03", event, seller, quantity, price);

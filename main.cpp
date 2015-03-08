@@ -17,9 +17,11 @@ int main() {
 	cout << "Welcome to Llama TSS. Please login." << endl;
     login:
     int index = login(userdata);
+    if(index ==-2){return 0;}
     string user = userdata[index];
     string acctype = userdata[index+1];
     if(acctype == "AA"){
+    	cout<<"Welcome Admin. "<<endl;
         buyb = sellb = adminb = true;
     } else if(acctype == "FS"){
         buyb = sellb = true;
@@ -77,7 +79,10 @@ int main() {
 			case 4:
 				if(sellb) {
 					sell(user);	
-				}break;
+				}else {
+                    cout << "Error: you do not have permission to do that." << endl;
+                }
+                break;
 			case 5:
 				if(adminb) {
 					refund(userdata);

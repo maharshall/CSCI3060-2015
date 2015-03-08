@@ -13,34 +13,35 @@ ofstream outfile;
 stringstream conv;
 
 void writeUserTransaction(string code, string user, string type, int _credit) {
+    string credit = "000000";
+
     if(code.compare("02") == 0){
         //do a deletion from users.txt
     } else {
-        string credit = "000000000";
         if(_credit != 0){ 
             conv << _credit;
             string c  = conv.str();
-            int i = (9-c.length())-1;
+            int i = (6-c.length());
             credit.replace(i, c.length(), c);
         }
+    }
         outfile.open("daily.txt", ios::out | ios::app);
         outfile << code << "_" << user << string(15-user.length(), '-') << "_"
                 << type << "_" << credit << endl;
         outfile.close();
-    }
 }
 
 void writeRefundTransaction(string buyer, string seller, int _credit) {
-    string credit = "000000000";
+    string credit = "000000";
     if(_credit != 0){
         conv << _credit;
         string c  = conv.str();
-        int i = (9-c.length())-1;
+        int i = (6-c.length());
         credit.replace(i, c.length(), c);
     }
     outfile.open("daily.txt", ios::out | ios::app);
     outfile <<  "05_" << buyer << string(15-buyer.length(), '-') << "_"
-            << seller << string(15-seller.length(), '-') << credit << endl;
+            << seller <<"_"<< string(15-seller.length(), '-') << credit << endl;
     outfile.close();
 }
 
@@ -62,7 +63,7 @@ void writeSalesTransaction(string code, string event, string seller, int _ticket
     }
     outfile.open("daily.txt", ios::out | ios::app);
     outfile << code <<  "_" << event << string(25-event.length(), '-') << "_"
-            << seller << string(15-seller.length(), '-') << tickets << "_"
+            << seller << string(15-seller.length(), '-') <<"_"<< tickets << "_"
             << price << endl;
     outfile.close();
 }

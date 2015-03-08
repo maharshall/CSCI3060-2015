@@ -16,7 +16,7 @@ void addcredit(vector<string> users, string self) {
     if(type.compare(users[index+1]) == 0){
 		//take in username
 		userin: cout << "Enter the username of the account you wish to add credit to: ";
-		getline(cin, user);
+		cin>>user;
         int i = findUser(users, user);
 	    if(i < 0) {
             cout << "Error: user not found." << endl;
@@ -34,8 +34,7 @@ void addcredit(vector<string> users, string self) {
     }
 
 	cout << "Are you sure you want to add this amount? (Y/N):";
-	getline(cin, input);
-    getline(cin, input);
+	cin>>input;
 
 	if(input == "y" || input == "Y") {
         writeUserTransaction("06", user, type, credit);

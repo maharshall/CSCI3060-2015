@@ -10,5 +10,5 @@ using namespace std;
 
 
 void logout (){
-    writeUserTransaction("00", "000000000000000", "00", 0);    
+    writeUserTransaction("00", "END OF SESSION", "00", 0);    
 }

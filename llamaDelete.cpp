@@ -13,13 +13,17 @@ void llamaDelete(vector<string> users, string self) {
 	string username = "", type = "", input = "", line = "";
 	ofstream outfile;
 	ifstream infile;
+    string temp;
 
     userin:
 	cout << "Enter the name of the user you wish to delete: ";
-	getline(cin, username);
+	cin>>username;
 
 	//check to see if user exists and is not self
-    if(username == self){
+    int pad = 15 - username.length();
+    temp = username;
+    temp.append(pad, '-');
+    if(temp == self){
         cout << "Error: cannot delte self." << endl;
         goto userin;
     }
@@ -34,7 +38,7 @@ void llamaDelete(vector<string> users, string self) {
     int credit = atoi(buffer);
 
 	cout << "Are you sure you want to delete this user? (Y/N):";
-	getline(cin, input);
+	cin>> input;
 
 	if(input == "y" || input == "Y") {
         writeUserTransaction("02", username, type, credit);

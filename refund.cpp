@@ -15,7 +15,7 @@ void refund(vector<string> users) {
 
 	//take in buyer username
 	buyerin: cout << "Enter the buyer's username: ";
-	getline(cin, buyer);
+	cin>>buyer;
     if(findUser(users, buyer) < 0){
         cout << "Error: buyer not found." << endl;
         goto buyerin;
@@ -23,7 +23,7 @@ void refund(vector<string> users) {
 
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
-	getline(cin, seller);
+	cin>>seller;
     if(findUser(users, seller) < 0){
         cout << "Error: seller not found." << endl;
         goto sellerin;
@@ -33,9 +33,13 @@ void refund(vector<string> users) {
 	quantin: cout << "Enter the amount of credit to refund: ";
     cin >> credit;	
 
+    if (credit >1000){
+    	cout<<"Error: session maximum exceeded."<<endl;
+    	goto quantin;
+    }
+
 	cout << "Are you sure you want to refund this amount? (Y/N):";
-	getline(cin, input);
-    getline(cin, input);
+	cin>>input;
 
 	if(input == "y" || input == "Y") {
 	    writeRefundTransaction(buyer, seller, credit);

@@ -12,12 +12,19 @@ void buy(vector<string> tickets, vector<string> users) {
 	int quantity = 0, price = 0;
 	ofstream outfile;
 	ifstream infile;
+    string temp;
 
 	//take in event name
 	eventin: cout << "Enter the event name: ";
-	getline(cin, event);
+	cin.clear();
+    getline(cin, event);
+    
+    int pad = 25 - event.length();
+    temp = event;
+    temp.append(pad, '-');
+
 	for(int i = 0; i < tickets.size(); i+=4) {
-        if(event.compare(tickets[i]) == 0){
+        if(temp.compare(tickets[i]) == 0){
             str = tickets[i+3];
             break ; 
         } 
@@ -29,7 +36,7 @@ void buy(vector<string> tickets, vector<string> users) {
     stringstream stream(str);
     stream >> price;
 
-    //check if buyer has enough money
+    //check if buyer has enuough money
 
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";

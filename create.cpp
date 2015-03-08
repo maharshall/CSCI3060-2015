@@ -14,9 +14,10 @@ void create(vector<string> userdata) {
 	ifstream infile;
 
 	//take in username, reject if >15 characters or already exists
-	userin: cout << "Enter the desired username: ";
-	getline(cin, username);
-    getline(cin, username);
+	userin: 
+	cout << "Enter the desired username: ";
+
+    cin >>username;
 	if(username.length() > 15) {
 		cout << "Error: username cannot exceed 15 characters." << endl;
 		goto userin;
@@ -30,14 +31,14 @@ void create(vector<string> userdata) {
 
 	//take in type, reject if not exact match to valid type
 	typein: cout << "Enter the account type (AA, FS, BS, SS): ";
-	getline(cin, type);
+	cin >> type;
 	if(!(type == "AA" || type == "FS" || type == "BS" || type == "SS")) {
 		cout << "Error: invalid acount type." << endl;
 		goto typein;
 	}
 
 	cout << "Are you sure you want to create this user? (Y/N):";
-	getline(cin, input);
+	cin >> input;
 
 	if(input == "y" || input == "Y") {
 	    writeUserTransaction("01", username, type, 0);
