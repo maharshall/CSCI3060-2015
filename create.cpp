@@ -16,6 +16,7 @@ void create(vector<string> userdata) {
 	//take in username, reject if >15 characters or already exists
 	userin: cout << "Enter the desired username: ";
 	getline(cin, username);
+    getline(cin, username);
 	if(username.length() > 15) {
 		cout << "Error: username cannot exceed 15 characters." << endl;
 		goto userin;

@@ -46,9 +46,7 @@ int main() {
 		cout << "6. Add Credit" << endl << endl;
 		cout << "Enter a numerical option: ";
 
-		getline(cin, input);
-   	stringstream stream(input);
-   	stream >> in;
+	    cin >> in;	
 
 		switch(in) {
 			case 0:
