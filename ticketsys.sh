@@ -14,3 +14,21 @@ do
     chdir Inputs
 done
 
+chdir ..
+rm all.etf
+chdir Expected
+for f in *
+do
+    chdir $f
+    for i in *.etf
+    do
+        echo "At $f-$i"
+        chdir ../..
+        cat Expected/$f/$i >> all.etf
+        chdir Expected/$f
+    done
+    chdir ../..
+    chdir Expected
+done
+
+
