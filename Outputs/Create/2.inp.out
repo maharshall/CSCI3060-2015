@@ -1,0 +1,21 @@
+Welcome to Llama TSS. Please login.
+Enter your username: Welcome Admin. 
+0. Logout
+1. Create
+2. Delete
+3. Buy
+4. Sell
+5. Refund
+6. Add Credit
+
+Enter a numerical option: Enter the desired username: Error: username cannot exceed 15 characters.
+Enter the desired username: Enter the account type (AA, FS, BS, SS): Are you sure you want to create this user? (Y/N):User was not created.
+0. Logout
+1. Create
+2. Delete
+3. Buy
+4. Sell
+5. Refund
+6. Add Credit
+
+Enter a numerical option: Thank you for using Llama TSS. Goodbye.
