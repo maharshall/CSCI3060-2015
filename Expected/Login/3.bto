@@ -1,0 +1,10 @@
+Welcome to Llama TSS. Please login.
+Enter your username: Error: username not found.
+Login attemps remaining: 3
+Enter your username: Error: username not found.
+Login attemps remaining: 2
+Enter your username: Error: username not found.
+Login attemps remaining: 1
+Enter your username: Error: username not found.
+Login attemps remaining: 0
+Number of Login Attempts exceeded.

@@ -1,0 +1,21 @@
+Welcome to Llama TSS. Please login.
+Enter your username: Welcome Admin. 
+0. Logout
+1. Create
+2. Delete
+3. Buy
+4. Sell
+5. Refund
+6. Add Credit
+
+Enter a numerical option: Enter the username of the account you wish to add credit to: Error: user not found.
+Enter the username of the account you wish to add credit to: Enter the amount of credit to add: Are you sure you want to add this amount? (Y/N):Credits were not added.
+0. Logout
+1. Create
+2. Delete
+3. Buy
+4. Sell
+5. Refund
+6. Add Credit
+
+Enter a numerical option: Thank you for using Llama TSS. Goodbye.
