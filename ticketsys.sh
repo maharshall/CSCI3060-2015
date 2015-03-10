@@ -1,8 +1,15 @@
 # Run the tests, check the outputs
+
+# change directory to inputs
+# for each folder in inputs and
+# for each file in those folders
+# run the the input file against the program
+# and send the output to the Output folder
+# with respective folders and files with the ext .out
 chdir Inputs
 for f in *
 do
-    echo $ftilda
+    echo $ftilda c
     chdir $f
     for i in *
     do
@@ -16,6 +23,9 @@ do
 done
 
 # check transaction file differences
+
+# concat every expected daily tranaction value
+# into a file all.etf
 chdir ..
 rm all.etf
 chdir Expected
@@ -33,12 +43,17 @@ do
     chdir Expected
 done
 
+# back to main folder
 chdir ..
-
-diff -c all.etf daily.txt > test.txt
+# run diff command against expected daily transaction value
+# store the differences in text.txt
+diff -c all.etf daily.txt > ExpectedDiff.txt
 
 rm diff.txt
 # check terminal output differences
+
+# compare the Expected Terminal Outputs against 
+# Actual Terminal Outputs.
 chdir Outputs
 for f in *
 do
