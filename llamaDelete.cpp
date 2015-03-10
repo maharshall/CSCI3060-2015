@@ -20,7 +20,7 @@ void llamaDelete(vector<string> users, string self) {
 	cout << "Enter the name of the user you wish to delete: ";
 	cin>>username;
 
-	//Pads username so a proper comparisson to 
+	//Pads username so a proper comparison to 
     //check to see if user exists and is not self
     int pad = 15 - username.length();
     temp = username;

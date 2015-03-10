@@ -12,8 +12,8 @@ void addcredit(vector<string> users, string self) {
 	int credit = 0;
     int useC = 0;
     
-    // find the user to get it's index checks if it is an admin
-    // if they are allows them to specify who to add credit to
+    // find the user to get its index checks if it is an admin
+    // If they are admin,  allow them to specify who to add credit to
     int index = findUser(users, self);
     type = "AA";
     if(type.compare(users[index+1]) == 0){

@@ -24,7 +24,7 @@ void buy(vector<string> tickets, vector<string> users, int index) {
     temp = event;
     temp.append(pad, '-');
 
-    // find the the event and get it's index
+    // find the the event and get its index
 	for(int i = 0; i < tickets.size(); i+=4) {
         if(temp.compare(tickets[i]) == 0){
             str = tickets[i+3];

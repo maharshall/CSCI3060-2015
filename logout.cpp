@@ -11,6 +11,6 @@ using namespace std;
 
 void logout (){
 	// writes to the daily transaction file 
-	// that a user has logged; out end of session
+	// that a user has logged out end of session
     writeUserTransaction("00", "END OF SESSION", "00", 0);    
 }
