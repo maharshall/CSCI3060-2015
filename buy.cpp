@@ -7,12 +7,14 @@
 
 using namespace std;
 
-void buy(vector<string> tickets, vector<string> users) {
+void buy(vector<string> tickets, vector<string> users, int index) {
 	string seller = "", event = "", input = "", str = "";
 	int quantity = 0, price = 0;
 	ofstream outfile;
 	ifstream infile;
     string temp;
+    int eventnum=0;
+    int eprice=0;
 
 	//take in event name
 	eventin: cout << "Enter the event name: ";
@@ -26,6 +28,7 @@ void buy(vector<string> tickets, vector<string> users) {
 	for(int i = 0; i < tickets.size(); i+=4) {
         if(temp.compare(tickets[i]) == 0){
             str = tickets[i+3];
+            eventnum = i;
             break ; 
         } 
         if(i+4 >= tickets.size()){
@@ -35,8 +38,6 @@ void buy(vector<string> tickets, vector<string> users) {
     }
     stringstream stream(str);
     stream >> price;
-
-    //check if buyer has enuough money
 
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
@@ -55,6 +56,14 @@ void buy(vector<string> tickets, vector<string> users) {
 		goto quantin;
 	}
 
+    eprice = atoi(users[index+2].c_str());
+    quantity = quantity * atoi(tickets[eventnum+3].c_str());
+    //check if buyer has enuough money
+    if (eprice<quantity){
+        cout<<"Error: Insufficient funds"<<endl;
+        return;
+    }
+
     //check to see requested amound does not exceed availability
     for(int i = 0; i < tickets.size(); i+=3 ){
         if(event.compare(tickets[i]) == 0){
@@ -67,6 +76,11 @@ void buy(vector<string> tickets, vector<string> users) {
             }
         }
     }
+
+
+
+
+
 
 	cout << "Are you sure you want to buy these tickets? (Y/N):";
 	getline(cin, input);
