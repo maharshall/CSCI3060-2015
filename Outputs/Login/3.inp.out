@@ -1,10 +1,13 @@
 Welcome to Llama TSS. Please login.
 Enter your username: Error: username not found.
 Login attemps remaining: 3
-Enter your username: Error: username not found.
-Login attemps remaining: 2
-Enter your username: Error: username not found.
-Login attemps remaining: 1
-Enter your username: Error: username not found.
-Login attemps remaining: 0
-Number of Login Attempts exceeded.
+Enter your username: Welcome Admin. 
+0. Logout
+1. Create
+2. Delete
+3. Buy
+4. Sell
+5. Refund
+6. Add Credit
+
+Enter a numerical option: Thank you for using Llama TSS. Goodbye.

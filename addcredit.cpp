@@ -25,6 +25,9 @@ void addcredit(vector<string> users, string self) {
         }
         type = users[index+1];
     }
+    else{
+        user = self;
+    }
 
 	//take in credit amount
 	creditin: cout << "Enter the amount of credit to add: ";
