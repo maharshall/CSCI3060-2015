@@ -9,16 +9,8 @@ Enter your username: Welcome Admin.
 6. Add Credit
 
 Enter a numerical option: Enter the event name: Error: event not found.
-Enter the event name: Enter the seller's username: Enter the amount of tickets you wish to buy: Are you sure you want to buy these tickets? (Y/N):Tickets were not purchased.
-0. Logout
-1. Create
-2. Delete
-3. Buy
-4. Sell
-5. Refund
-6. Add Credit
-
-Enter a numerical option: Invalid input.
+Enter the event name: Enter the seller's username: Error: seller not found.
+Enter the seller's username: Enter the amount of tickets you wish to buy: Are you sure you want to buy these tickets? (Y/N):Tickets were not purchased.
 0. Logout
 1. Create
 2. Delete

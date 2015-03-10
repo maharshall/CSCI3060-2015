@@ -54,7 +54,6 @@ int main() {
 	    }else {
 	  	  in = atoi(input.c_str());
 		}
-		cout<< in<<endl;
 
 		switch(in) {
 			case 0:

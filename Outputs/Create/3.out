@@ -8,7 +8,8 @@ Enter your username: Welcome Admin.
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Invalid input.
+Enter a numerical option: Enter the desired username: Error: username already in use.
+Enter the desired username: Enter the account type (AA, FS, BS, SS): Are you sure you want to create this user? (Y/N):User was not created.
 0. Logout
 1. Create
 2. Delete

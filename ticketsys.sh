@@ -2,13 +2,13 @@
 chdir Inputs
 for f in *
 do
-    echo $f
+    echo $ftilda
     chdir $f
     for i in *
     do
         echo "Running test $f-$i"
         chdir ../..
-        ./sys < Inputs/$f/$i > Outputs/$f/$i.out
+        ./sys < Inputs/$f/$i > Outputs/$f/${i%.*}.out
         chdir Inputs/$f
     done
     chdir ../..
@@ -37,6 +37,7 @@ chdir ..
 
 diff -c all.etf daily.txt > test.txt
 
+rm diff.txt
 # check terminal output differences
 chdir Outputs
 for f in *
@@ -46,7 +47,7 @@ do
     do
         echo "At $f-$i"
         chdir ../..
-        diff Outpus/$f/$i Expected/$f/$i
+        diff -c Expected/$f/${i%.*}.bto Outputs/$f/${i%.*}.out >> diff.txt
         chdir Outputs/$f
     done
     chdir ../..

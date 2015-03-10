@@ -1,5 +1,6 @@
 Welcome to Llama TSS. Please login.
-Enter your username: 0. Logout
+Enter your username: Welcome Admin. 
+0. Logout
 1. Create
 2. Delete
 3. Buy
@@ -7,7 +8,7 @@ Enter your username: 0. Logout
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Enter the amount of credit to add: Are you sure you want to add this amount? (Y/N):0. Logout
+Enter a numerical option: Enter the desired username: Enter the account type (AA, FS, BS, SS): Are you sure you want to create this user? (Y/N):0. Logout
 1. Create
 2. Delete
 3. Buy
