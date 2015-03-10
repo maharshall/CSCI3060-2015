@@ -13,7 +13,7 @@ void addcredit(vector<string> users, string self) {
     int useC = 0;
     
     int index = findUser(users, self);
-    type = users[index+1];
+    type = "AA";
     if(type.compare(users[index+1]) == 0){
 		//take in username
 		userin: cout << "Enter the username of the account you wish to add credit to: ";
