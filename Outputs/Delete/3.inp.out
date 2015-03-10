@@ -8,7 +8,8 @@ Enter your username: Welcome Admin.
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Enter the name of the user you wish to delete: Error: user not found.
+Enter a numerical option: 2
+Enter the name of the user you wish to delete: Error: user not found.
 Enter the name of the user you wish to delete: Are you sure you want to delete this user? (Y/N):User was not deleted.
 0. Logout
 1. Create
@@ -18,4 +19,5 @@ Enter the name of the user you wish to delete: Are you sure you want to delete t
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Thank you for using Llama TSS. Goodbye.
+Enter a numerical option: 0
+Thank you for using Llama TSS. Goodbye.

@@ -48,7 +48,13 @@ int main() {
 		cout << "6. Add Credit" << endl << endl;
 		cout << "Enter a numerical option: ";
 
-	    cin >> in;	
+	    cin >> input;
+	    if(isdigit(input[0])==0) {
+	    	in = 8;
+	    }else {
+	  	  in = atoi(input.c_str());
+		}
+		cout<< in<<endl;
 
 		switch(in) {
 			case 0:
@@ -95,8 +101,8 @@ int main() {
                 break;
 			default:
 				cout << "Invalid input." << endl;
+				cin.clear();
                 break;
-			break;
 		}
 	}
 }

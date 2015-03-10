@@ -8,7 +8,8 @@ Enter your username: Welcome Admin.
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Enter the buyer's username: Enter the seller's username: Enter the amount of credit to refund: Error: buyer cannot have more than 999999 credit.
+Enter a numerical option: 5
+Enter the buyer's username: Enter the seller's username: Enter the amount of credit to refund: Error: buyer cannot have more than 999999 credit.
 Enter the amount of credit to refund: Are you sure you want to refund this amount? (Y/N):Credit was not refunded.
 0. Logout
 1. Create
@@ -18,4 +19,5 @@ Enter the amount of credit to refund: Are you sure you want to refund this amoun
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Thank you for using Llama TSS. Goodbye.
+Enter a numerical option: 0
+Thank you for using Llama TSS. Goodbye.

@@ -7,7 +7,8 @@ Enter your username: 0. Logout
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Error: you do not have permission to do that.
+Enter a numerical option: 4
+Error: you do not have permission to do that.
 0. Logout
 1. Create
 2. Delete
@@ -16,4 +17,5 @@ Enter a numerical option: Error: you do not have permission to do that.
 5. Refund
 6. Add Credit
 
-Enter a numerical option: Thank you for using Llama TSS. Goodbye.
+Enter a numerical option: 0
+Thank you for using Llama TSS. Goodbye.
