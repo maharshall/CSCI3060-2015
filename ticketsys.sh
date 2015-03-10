@@ -1,3 +1,4 @@
+# Run the tests, check the outputs
 chdir Inputs
 for f in *
 do
@@ -31,4 +32,6 @@ do
     chdir Expected
 done
 
+chdir ..
 
+diff -c all.etf daily.txt > test.txt
