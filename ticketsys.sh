@@ -15,6 +15,7 @@ do
     chdir Inputs
 done
 
+# check transaction file differences
 chdir ..
 rm all.etf
 chdir Expected
@@ -35,3 +36,20 @@ done
 chdir ..
 
 diff -c all.etf daily.txt > test.txt
+
+# check terminal output differences
+chdir Outputs
+for f in *
+do
+    chdir $f
+    for i in *
+    do
+        echo "At $f-$i"
+        chdir ../..
+        diff Outpus/$f/$i Expected/$f/$i
+        chdir Outputs/$f
+    done
+    chdir ../..
+    chdir Outputs
+done
+
