@@ -5,15 +5,23 @@ import java.util.*;
 
 public class BackEnd {
 
-
     static ArrayList<User> users;
     static ArrayList<Ticket> ticks;
-    
+
+    static AddCredit addcredit;
+    static Buy buy;
+    static Refund refund;
+    static Sell sell;
     
     public static void main(String[] args) {
         users = new ArrayList<User>();
         ticks = new ArrayList<Ticket>();
 
+        addcredit = new AddCredit();
+        buy = new Buy();
+        refund = new Refund();
+        sell = new Sell();
+        
         users.add(new User("maharshall", "AA", 30));
         users.get(0).printUser();
     }
@@ -40,7 +48,7 @@ public class BackEnd {
     
     //For reading in transactions and processing them
     public void parseTransactions(){
-        
+
     }
 
     //For appending daily.txt to history.txt and then clearing daily.txt
