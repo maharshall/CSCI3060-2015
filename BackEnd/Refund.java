@@ -6,7 +6,7 @@ import java.util.*;
 public class Refund {
     public Refund(){}
 
-    public void apply(User buyer, User seller){
+    public void apply(User buyer, User seller, int credit){
         
     }
 }
