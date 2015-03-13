@@ -25,7 +25,7 @@ void writeUserTransaction(string code, string user, string type, int _credit) {
             credit.replace(i, c.length(), c);
         }
     }
-        outfile.open("daily.txt", ios::out | ios::app);
+        outfile.open("../daily.txt", ios::out | ios::app);
         outfile << code << "_" << user << string(15-user.length(), '-') << "_"
                 << type << "_" << credit << endl;
         outfile.close();
@@ -39,7 +39,7 @@ void writeRefundTransaction(string buyer, string seller, int _credit) {
         int i = (6-c.length());
         credit.replace(i, c.length(), c);
     }
-    outfile.open("daily.txt", ios::out | ios::app);
+    outfile.open("../daily.txt", ios::out | ios::app);
     outfile <<  "05_" << buyer << string(15-buyer.length(), '-') << "_"
             << seller <<"_"<< string(15-seller.length(), '-') << credit << endl;
     outfile.close();
@@ -61,7 +61,7 @@ void writeSalesTransaction(string code, string event, string seller, int _ticket
         int i = (6-p.length());
         price.replace(i, p.length(), p);
     }
-    outfile.open("daily.txt", ios::out | ios::app);
+    outfile.open("../daily.txt", ios::out | ios::app);
     outfile << code <<  "_" << event << string(25-event.length(), '-') << "_"
             << seller << string(15-seller.length(), '-') <<"_"<< tickets << "_"
             << price << endl;

@@ -35,7 +35,7 @@ done
 
 chdir ..
 
-diff -c all.etf daily.txt > test.txt
+diff -c all.etf ../daily.txt > test.txt
 
 rm diff.txt
 # check terminal output differences
