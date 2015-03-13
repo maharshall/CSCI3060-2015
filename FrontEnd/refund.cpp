@@ -10,10 +10,9 @@ using namespace std;
 void refund(vector<string> users) {
 	string seller = "", buyer = "", input = "";
 	int credit = 0;
+	int bIn,sIn,sellC, useC;
 	ofstream outfile;
 	ifstream infile;
-	int bIn,sIn;
-	int sellC, useC;
 
 	//take in buyer username
 	buyerin: cout << "Enter the buyer's username: ";
@@ -38,7 +37,6 @@ void refund(vector<string> users) {
     cin >> credit;	
 
     // catch credit errors
-
     if (credit >1000 || credit <0){
     	cout<<"Error: session maximum exceeded."<<endl;
     	goto quantin;
@@ -56,9 +54,9 @@ void refund(vector<string> users) {
         goto quantin;
     }
 
+    // confirm with user that they want to complete this action
 	cout << "Are you sure you want to refund this amount? (Y/N):";
 	cin>>input;
-
 	if(input == "y" || input == "Y") {
 	    writeRefundTransaction(buyer, seller, credit);
 	    cout << "Credits were refunded successfully." << endl;;

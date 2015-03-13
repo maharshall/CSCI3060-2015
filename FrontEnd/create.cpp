@@ -16,7 +16,6 @@ void create(vector<string> userdata) {
 	//take in username, reject if >15 characters or already exists
 	userin: 
 	cout << "Enter the desired username: ";
-
     cin >>username;
 	if(username.length() > 15) {
 		cout << "Error: username cannot exceed 15 characters." << endl;
@@ -37,6 +36,7 @@ void create(vector<string> userdata) {
 		goto typein;
 	}
 
+	//confirm with user that they want to complete the transaction
 	cout << "Are you sure you want to create this user? (Y/N):";
 	cin >> input;
 
