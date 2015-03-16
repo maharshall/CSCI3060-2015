@@ -16,4 +16,6 @@ class User {
         System.out.println(username+"_"+type+"_"+credit);
     }
 
+    public void updateCredit(int c){credit+=c;}
+
 }

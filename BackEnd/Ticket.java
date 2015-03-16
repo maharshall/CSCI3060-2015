@@ -17,4 +17,8 @@ class Ticket {
     public void printEvent(){
         System.out.println(event+"_"+seller+"_"+tickets+"_"+price);
     }
+
+    public void updateTick(int i){
+        tickets+=i;
+    }
 }
