@@ -45,14 +45,11 @@ done
 
 # back to main folder
 chdir ..
-<<<<<<< HEAD:FrontEnd/ticketsys.sh
 
 diff -c all.etf ../daily.txt > test.txt
-=======
 # run diff command against expected daily transaction value
 # store the differences in text.txt
 diff -c all.etf daily.txt > ExpectedDiff.txt
->>>>>>> 3978e841cb4b5d4bb752e4bc90a2370b2003643a:ticketsys.sh
 
 rm diff.txt
 # check terminal output differences

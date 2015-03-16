@@ -9,7 +9,6 @@ public class Buy {
     public void apply(User seller, Ticket event, int tix){
     	int price = event.getPrice();
     	
-    	seller.updateCredit((price * tix));
     	event.updateTick(-tix);
     }
 }
