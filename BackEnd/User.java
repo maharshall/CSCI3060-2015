@@ -12,6 +12,8 @@ class User {
         this.credit = credit;
     }
 
+    public User(){}
+
     public void printUser(){
         System.out.println(username+"_"+type+"_"+credit);
     }

@@ -14,6 +14,8 @@ class Ticket {
         this.price = price;
     }
 
+    public Ticket(){}
+
     public void printEvent(){
         System.out.println(event+"_"+seller+"_"+tickets+"_"+price);
     }
