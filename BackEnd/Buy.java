@@ -6,9 +6,9 @@ import java.util.*;
 public class Buy {
     public Buy(){}
 
-    public void apply(User buyer, User seller, Ticket event, int price, int tix){
+    public void apply(User seller, Ticket event, int tix){
+    	int price = event.getPrice();
     	
-    	buyer.updateCredit(-(price * tix));
     	seller.updateCredit((price * tix));
     	event.updateTick(-tix);
     }

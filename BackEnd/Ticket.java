@@ -21,4 +21,8 @@ class Ticket {
     public void updateTick(int i){
         tickets+=i;
     }
+
+    public int getPrice(){
+        return price;
+    }
 }
