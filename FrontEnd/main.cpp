@@ -76,7 +76,7 @@ int main() {
                 break;
 			case 3:
 				if(buyb) {
-					buy(tickdata, userdata,index);
+					buy(tickdata, userdata,index,user,acctype);
 				} else {
                     cout << "Error: you do not have permission to do that." << endl;
                 }

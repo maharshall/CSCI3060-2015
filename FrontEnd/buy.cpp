@@ -7,8 +7,8 @@
 
 using namespace std;
 
-void buy(vector<string> tickets, vector<string> users, int index) {
-	string seller = "", event = "", input = "", str = "";
+void buy(vector<string> tickets, vector<string> users, int index, string self,string type) {
+	string seller = "", event = "", input = "", str = "", stype="";
 	int quantity = 0, price = 0, eventnum = 0,eprice = 0;
 	ofstream outfile;
 	ifstream infile;
@@ -43,10 +43,12 @@ void buy(vector<string> tickets, vector<string> users, int index) {
 	//take in seller username
 	sellerin: cout << "Enter the seller's username: ";
 	getline(cin, seller);
-    if(findUser(users, seller) < 0){
+    int ind = findUser(users,seller);
+    if(ind < 0){
         cout << "Error: seller not found." << endl;
         goto sellerin;
-    }    
+    } 
+    stype = users[ind+1];   
 
 	//take in quantity of tickets
 	quantin: cout << "Enter the amount of tickets you wish to buy: ";
@@ -79,12 +81,13 @@ void buy(vector<string> tickets, vector<string> users, int index) {
         }
     }
 
-
-    //Confirm they want to complete this transaction.
+     //Confirm they want to complete this transaction.
 	cout << "Are you sure you want to buy these tickets? (Y/N):";
     cin>>input;
 
 	if(input == "y" || input == "Y") {
+       writeUserTransaction(type,"06",self,-price);
+       writeUserTransaction(stype,"06",seller,price);
 	   writeSalesTransaction("04", event, seller, quantity, price); 
 	} else {
 		cout << "Tickets were not purchased." << endl;

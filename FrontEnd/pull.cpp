@@ -13,8 +13,8 @@ int pull(vector<string> &x, int i) {
 
 
 	// runs a loop to store usertext or tickets.txt into a vector.
-	if (i==0){infile.open("users.txt", ios::in);}
-	else {infile.open("tickets.txt", ios::in);}
+	if (i==0){infile.open("../users.txt", ios::in);}
+	else {infile.open("../tickets.txt", ios::in);}
 
 
 	// while there are still more lines
