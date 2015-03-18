@@ -221,4 +221,11 @@ public class BackEnd {
             System.out.println("Something went wrong: " + e);
         }     
     }
+
+    /*
+     * Writes any errors to the log file
+     */
+    public static void writeLog(){
+        //TODO: yes
+    }
 }
