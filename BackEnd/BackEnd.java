@@ -1,17 +1,21 @@
-//The main file for the back end
-
+/*
+ * The main file for the back end.
+ * Essentially all the work is done here
+ * except for the buying operation.
+ */
 import java.io.*;
 import java.util.*;
 
 public class BackEnd {
 
+    /*
+     * Arraylists for storing users and events
+     */
     static ArrayList<User> users;
     static ArrayList<Ticket> ticks;
-
-    static AddCredit addcredit;
+    
+    //The Buy class
     static Buy buy;
-    static Refund refund;
-    static Sell sell;
     
     public static void main(String[] args) {
         users = new ArrayList<User>();
@@ -21,7 +25,7 @@ public class BackEnd {
         
         buy = new Buy();
         
-        //Does everything
+        //Most of the work happens here!
         parseTransactions();
         
         writeUsers(users);
@@ -29,7 +33,9 @@ public class BackEnd {
         writeHistory();
     }
 
-    //For building the user arraylist and applying transactions
+    /*
+     * Read users.txt line-by-line and add instances of the User class to the arraylist
+     */
     public static ArrayList<User> buildUsers(ArrayList<User> users){
         try {
             BufferedReader br = new BufferedReader(new FileReader("../users.txt"));
@@ -44,7 +50,9 @@ public class BackEnd {
         return users;
     }
 
-    //For building the ticket arraylist and applying transactions
+    /*
+     * Read tickets.txt line-by-line and add instances of the Ticket class to the arraylist
+     */
     public static ArrayList<Ticket> buildEvents(ArrayList<Ticket> ticks){
         try {
             BufferedReader br = new BufferedReader(new FileReader("../tickets.txt"));
@@ -59,7 +67,9 @@ public class BackEnd {
         return ticks;
     }
 
-    //For writing the updated users to users.txt
+    /*
+     * Clear users.txt and write the updated list of users.
+     */
     public static void writeUsers(ArrayList<User> users){
         try {
             PrintWriter pw = new PrintWriter("../users.txt");
@@ -75,7 +85,9 @@ public class BackEnd {
         }
     }
 
-    //For writing the updated events to tickets.txt
+    /*
+     * Clear tickets.txt and write the updated list of tickets.
+     */
     public static void writeEvents(ArrayList<Ticket> ticks){
         try {
             PrintWriter pw = new PrintWriter("../tickets.txt");
@@ -91,7 +103,10 @@ public class BackEnd {
         }
     }
     
-    //For reading in transactions and processing them
+    /*
+     * Read daily.txt line-by-line and perform operations
+     * based on the op-code at the beginning of each line
+     */
     public static void parseTransactions(){
         try {
             BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));
@@ -101,12 +116,17 @@ public class BackEnd {
                 int i = Integer.parseInt(tokens[0]);
                 switch(i) {
                     case 0:
-                       break; //do nothing
-                    case 1:     //Create new user
+                        //00 - logout, we don't need to do anything
+                        break;
+                    case 1:
+                        //01 - Create a new user.
+                        //We can just add to the arraylist directly.
                         users.add(new User(tokens[1], tokens[2], Integer.parseInt(tokens[3])));
                         break;
 
-                    case 2:     //Delete User
+                    case 2:
+                        //02 - Delete a user.
+                        //We can just find and remove them from the arraylist.
                         for(int j = 0; j < users.size(); ++j) {
                             if(tokens[1].equals(users.get(j).username)) {
                                 users.remove(j);
@@ -115,30 +135,36 @@ public class BackEnd {
                         }
                         break;
 
-                    case 3:     //Create event
+                    case 3:
+                        //03 - Sell/create an event.
+                        //We can just addit to the arraylist directly.
                         ticks.add(new Ticket(tokens[1], tokens[2], Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]))); 
                         break;
                     
-                    case 4:     //Buy tickets
-                        //find seller
+                    case 4:
+                        //04 - Buy tickets.
+                        //Find the seller and event, then pass them to the buy class.
                         User s = new User();
                         for(int j = 0; j < users.size(); ++j) {
                             if(tokens[2].equals(users.get(j).username)) {
                                 s = users.get(j);
+                                break;
                             }
                         }
 
-                        //find event
                         Ticket t = new Ticket();
                         for(int j = 0; j < ticks.size(); ++j) {
                             if(tokens[1].equals(ticks.get(j).event) && s.username.equals(ticks.get(j).seller)) {
                                 t = ticks.get(j);
+                                break;
                             }
                         }
                         buy.apply(s, t, Integer.parseInt(tokens[3]));
                         break;
                     
-                    case 5:     //Refund Credits
+                    case 5:
+                        //05 - Refund credits.
+                        //We can just find the users in the arraylist and alter their credit values.
                         for(int j = 0; j < users.size(); ++j) {
                             if(tokens[1].equals(users.get(j).username)) {
                                 //Add credit to buyer account
@@ -151,7 +177,9 @@ public class BackEnd {
                         }
                         break;
                     
-                    case 6:     //Add Credit
+                    case 6:
+                        //06 - Add credit.
+                        //We can just find the user in the arraylist and give them credit.
                         for(int j = 0; j < users.size(); ++j) {
                             if(tokens[1].equals(users.get(j).username)) {
                                 users.get(j).credit += Integer.parseInt(tokens[3]);
@@ -161,6 +189,8 @@ public class BackEnd {
                         break;
                     
                     default:
+                        //Default case.
+                        //If the front end works properly then this statement should never be reached.
                         System.out.println("Invalid token! This shouldn't happen.");
                         break;
 
@@ -171,7 +201,10 @@ public class BackEnd {
         }
     }
 
-    //For appending daily.txt to history.txt and then clearing daily.txt
+    /*
+     * Append the contents of daily.txt to history.txt
+     * Clear daily.txt for the next front end session.
+     */
     public static void writeHistory(){
         try {
             BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));

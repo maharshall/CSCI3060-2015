@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+/*
+ * Ticket Class
+ * Events will be stored in an arraylist
+ * as instances of this class.
+ */
 class Ticket {
     String event;
     String seller;

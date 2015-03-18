@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+/*
+ * The User Class.
+ * Users will be stored as an arraylist
+ * of instances of this class
+ */
 class User {
     String username;
     String type;
