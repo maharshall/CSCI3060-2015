@@ -16,7 +16,11 @@ public class BackEnd {
     
     //The Buy class
     static Buy buy;
-    
+
+    public BackEnd(){
+
+    }
+
     public static void main(String[] args) {
         users = new ArrayList<User>();
         users = buildUsers(users);
