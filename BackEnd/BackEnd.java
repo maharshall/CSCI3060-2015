@@ -13,7 +13,7 @@ public class BackEnd {
      */
     static ArrayList<User> users;
     static ArrayList<Ticket> ticks;
-    
+
     //The Buy class
     static Buy buy;
 
@@ -26,12 +26,12 @@ public class BackEnd {
         users = buildUsers(users);
         ticks = new ArrayList<Ticket>();
         ticks = buildEvents(ticks);
-        
+
         buy = new Buy();
-        
+
         //Most of the work happens here!
         parseTransactions();
-        
+
         writeUsers(users);
         writeEvents(ticks);
         writeHistory();
@@ -42,7 +42,7 @@ public class BackEnd {
      */
     public static ArrayList<User> buildUsers(ArrayList<User> users){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("../users.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -59,7 +59,7 @@ public class BackEnd {
      */
     public static ArrayList<Ticket> buildEvents(ArrayList<Ticket> ticks){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("../tickets.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -76,7 +76,7 @@ public class BackEnd {
      */
     public static void writeUsers(ArrayList<User> users){
         try {
-            PrintWriter pw = new PrintWriter("../users.txt");
+            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt");
             pw.write("");
             for(int i = 0; i < users.size(); ++i) {
                 String temp = (users.get(i).username + "_" + users.get(i).type
@@ -94,7 +94,7 @@ public class BackEnd {
      */
     public static void writeEvents(ArrayList<Ticket> ticks){
         try {
-            PrintWriter pw = new PrintWriter("../tickets.txt");
+            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt");
             pw.write("");
             for(int i = 0; i < ticks.size(); ++i) {
                 String temp = (ticks.get(i).event + "_" + ticks.get(i).seller + "_"
@@ -106,14 +106,14 @@ public class BackEnd {
             System.out.println("Something went wrong: " + e);
         }
     }
-    
+
     /*
      * Read daily.txt line-by-line and perform operations
      * based on the op-code at the beginning of each line
      */
     public static void parseTransactions(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -142,9 +142,9 @@ public class BackEnd {
                     case 3:
                         //03 - Sell/create an event.
                         //We can just addit to the arraylist directly.
-                        ticks.add(new Ticket(tokens[1], tokens[2], Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]))); 
+                        ticks.add(new Ticket(tokens[1], tokens[2], Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4])));
                         break;
-                    
+
                     case 4:
                         //04 - Buy tickets.
                         //Find the seller and event, then pass them to the buy class.
@@ -165,7 +165,7 @@ public class BackEnd {
                         }
                         buy.apply(s, t, Integer.parseInt(tokens[3]));
                         break;
-                    
+
                     case 5:
                         //05 - Refund credits.
                         //We can just find the users in the arraylist and alter their credit values.
@@ -180,7 +180,7 @@ public class BackEnd {
                             }
                         }
                         break;
-                    
+
                     case 6:
                         //06 - Add credit.
                         //We can just find the user in the arraylist and give them credit.
@@ -191,7 +191,7 @@ public class BackEnd {
                             }
                         }
                         break;
-                    
+
                     default:
                         //Default case.
                         //If the front end works properly then this statement should never be reached.
@@ -211,19 +211,19 @@ public class BackEnd {
      */
     public static void writeHistory(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));
-            PrintWriter pw = new PrintWriter("../history.txt");
+            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt"));
+            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/history.txt");
             String line;
             while((line = br.readLine()) != null) {
                 pw.append(line + "\n");
             }
             pw.close();
-            PrintWriter p2 = new PrintWriter("../daily.txt");
+            PrintWriter p2 = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt");
             p2.write("");
             p2.close();
         } catch(Exception e) {
             System.out.println("Something went wrong: " + e);
-        }     
+        }
     }
 
     /*

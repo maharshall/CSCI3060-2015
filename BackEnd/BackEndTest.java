@@ -18,15 +18,15 @@ import static org.junit.Assert.assertEquals;
  * @since <pre>Mar 27, 2015</pre>
  */
 public class BackEndTest {
-    final String DAILY = "../daily.txt";
-    final String USERS = "../users.txt";
-    final String TICKETS = "../tickets.txt";
-    final String HISTORY = "../history.txt";
+    final String DAILY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt";
+    final String USERS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt";
+    final String TICKETS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt";
+    final String HISTORY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/history.txt";
 
-    final String EXPECTEDDAILY = "../expectedDaily.txt";
-    final String EXPECTEDUSERS = "../expectedUsers.txt";
-    final String EXPECTEDTICKETS = "../expectedTickets.txt";
-    final String EXPECTEDHISTORY = "../expectedHistory";
+    final String EXPECTEDDAILY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedDaily.txt";
+    final String EXPECTEDUSERS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedUsers.txt";
+    final String EXPECTEDTICKETS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedTickets.txt";
+    final String EXPECTEDHISTORY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedHistory";
 
     BackEnd bE;
     PrintWriter dailyWriter;
@@ -517,6 +517,9 @@ public class BackEndTest {
         dailyWriter.close();
 
         initArrayLists();
+        User testUser1 = new User("realHacker-----", "AA", 0);
+        bE.users.add(testUser1);
+
         bE.parseTransactions();
 
         expectedTicketArrayList.clear();
@@ -570,7 +573,7 @@ public class BackEndTest {
 
     @Test //error in daily file input
     public void testParseTransactionsCase5() throws Exception {
-        dailyWriter.write("05_testuser-------_testadmin_------000010");
+        dailyWriter.write("05_testuser-------_testadmin------000010");
         dailyWriter.close();
 
         initArrayLists();
@@ -711,13 +714,31 @@ public class BackEndTest {
         assertEquals(true, filesEqual(EXPECTEDHISTORY, HISTORY) && filesEqual(EXPECTEDDAILY, DAILY));
     }
 
+    @Test //not working
+    public void testBuyAndUser() throws Exception {
+    Buy testBuy = new Buy();
+        User seller = new User("seller", "AA", 500);
+        Ticket event = new Ticket("party", "seller", 50, 50);
+        testBuy.apply(seller, event, 3);
+        event.printEvent();
+        seller.printUser();
+
+        User testUser1 = new User("seller", "AA", 500);
+        expectedUserArrayList.add(testUser1);
+
+        Ticket testEvent1 = new Ticket("party", "seller", 50, 47);
+        expectedTicketArrayList.add(testEvent1);
+
+        assertEquals(true, compareArrayLists(expectedTicketArrayList, expectedUserArrayList));
+    }
+
     /**
      * Method: writeLog()
      */
     @Test
     public void testWriteLog() throws Exception {
-//TODO: Test goes here... 
+//TODO: Test goes here...
     }
 
 
-} 
+}
