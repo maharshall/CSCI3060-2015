@@ -1,6 +1,3 @@
-import java.io.*;
-import java.util.*;
-
 /*
  * The User Class.
  * Users will be stored as an arraylist
@@ -22,7 +19,5 @@ class User {
     public void printUser(){
         System.out.println(username+"_"+type+"_"+credit);
     }
-
-    public void updateCredit(int c){credit+=c;}
 
 }

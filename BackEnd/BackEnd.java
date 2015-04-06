@@ -21,6 +21,10 @@ public class BackEnd {
 
     }
 
+    public void initBuy(){
+        buy = new Buy();
+    }
+
     public static void main(String[] args) {
         users = new ArrayList<User>();
         users = buildUsers(users);
@@ -42,7 +46,7 @@ public class BackEnd {
      */
     public static ArrayList<User> buildUsers(ArrayList<User> users){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("../users.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -59,7 +63,7 @@ public class BackEnd {
      */
     public static ArrayList<Ticket> buildEvents(ArrayList<Ticket> ticks){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("../tickets.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -76,7 +80,7 @@ public class BackEnd {
      */
     public static void writeUsers(ArrayList<User> users){
         try {
-            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt");
+            PrintWriter pw = new PrintWriter("../users.txt");
             pw.write("");
             for(int i = 0; i < users.size(); ++i) {
                 String temp = (users.get(i).username + "_" + users.get(i).type
@@ -94,7 +98,7 @@ public class BackEnd {
      */
     public static void writeEvents(ArrayList<Ticket> ticks){
         try {
-            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt");
+            PrintWriter pw = new PrintWriter("../tickets.txt");
             pw.write("");
             for(int i = 0; i < ticks.size(); ++i) {
                 String temp = (ticks.get(i).event + "_" + ticks.get(i).seller + "_"
@@ -113,7 +117,7 @@ public class BackEnd {
      */
     public static void parseTransactions(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));
             String line;
             while((line = br.readLine()) != null) {
                 String[] tokens = line.split("_");
@@ -211,14 +215,14 @@ public class BackEnd {
      */
     public static void writeHistory(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt"));
-            PrintWriter pw = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/history.txt");
+            BufferedReader br = new BufferedReader(new FileReader("../daily.txt"));
+            PrintWriter pw = new PrintWriter("../history.txt");
             String line;
             while((line = br.readLine()) != null) {
                 pw.append(line + "\n");
             }
             pw.close();
-            PrintWriter p2 = new PrintWriter("/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt");
+            PrintWriter p2 = new PrintWriter("../daily.txt");
             p2.write("");
             p2.close();
         } catch(Exception e) {

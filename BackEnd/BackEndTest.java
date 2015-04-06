@@ -18,15 +18,15 @@ import static org.junit.Assert.assertEquals;
  * @since <pre>Mar 27, 2015</pre>
  */
 public class BackEndTest {
-    final String DAILY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/daily.txt";
-    final String USERS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/users.txt";
-    final String TICKETS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/tickets.txt";
-    final String HISTORY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/history.txt";
+    final String DAILY = "../daily.txt";
+    final String USERS = "../users.txt";
+    final String TICKETS = "../tickets.txt";
+    final String HISTORY = "../history.txt";
 
-    final String EXPECTEDDAILY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedDaily.txt";
-    final String EXPECTEDUSERS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedUsers.txt";
-    final String EXPECTEDTICKETS = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedTickets.txt";
-    final String EXPECTEDHISTORY = "/home/peter/Desktop/Artificial Intelligence/Project/CSCI3060-2015/expectedHistory";
+    final String EXPECTEDDAILY = "../expectedDaily.txt";
+    final String EXPECTEDUSERS = "../expectedUsers.txt";
+    final String EXPECTEDTICKETS = "../expectedTickets.txt";
+    final String EXPECTEDHISTORY = "../expectedHistory";
 
     BackEnd bE;
     PrintWriter dailyWriter;
@@ -153,21 +153,24 @@ public class BackEndTest {
     @Test
     public void testMain() throws Exception {
         dailyWriter.write("01_RealHacker-----_AA_000100" + "\n"); //create new user
-        dailyWriter.write("01_FakeHacker-----_AA_000500" + "\n"); //create new user
-        dailyWriter.write("03_batman dances------------_RealHacker-----_040_000010" + "\n"); //create event
-        dailyWriter.write("04_batman dances------------_RealHacker-----_003_000010" + "\n"); //buy ticket
-        dailyWriter.write("05_FakeHacker-----_testadmin_------000050" + "\n"); //refund
-        dailyWriter.write("06_FakeHacker-----_AA_000010" + "\n"); //add credit
-        dailyWriter.write("02_RealHacker-----_AA_000000" + "\n"); //delete
-        dailyWriter.write("00_END OF SESSION-_00_000000"); //end session
+        dailyWriter.append("01_FakeHacker-----_AA_000500" + "\n"); //create new user
+        dailyWriter.append("03_batman dances------------_RealHacker-----_040_000010" + "\n"); //create event
+        dailyWriter.append("04_batman dances------------_RealHacker-----_003_000010" + "\n"); //buy ticket
+        dailyWriter.append("05_FakeHacker-----_testadmin------_000050" + "\n"); //refund
+        dailyWriter.append("06_FakeHacker-----_AA_000010" + "\n"); //add credit
+        dailyWriter.append("02_RealHacker-----_AA_000000" + "\n"); //delete
+        dailyWriter.append("00_END OF SESSION-_00_000000"); //end session
         dailyWriter.close();
 
         initArrayLists();
-        bE.parseTransactions();
+
+        bE.main(new String[] {"args1", "args2"});
 
         expectedUserArrayList.clear();
         User expectedFakeHacker = new User("FakeHacker-----", "AA", 560);
         expectedUserArrayList.add(expectedFakeHacker);
+
+
 
         expectedTicketArrayList.clear();
         Ticket expectedBatmanDances = new Ticket("batman dances------------","RealHacker-----", 37,10);
@@ -551,6 +554,8 @@ public class BackEndTest {
         dailyWriter.close();
 
         initArrayLists();
+        bE.initBuy();
+
 
         User testUser1 = new User("testadmin------", "AA", 500);
         bE.users.add(testUser1);
@@ -563,7 +568,7 @@ public class BackEndTest {
         expectedTicketArrayList.clear();
         expectedUserArrayList.clear();
 
-        Ticket expectedEvent1 = new Ticket("batman dances------------", "testadmin------", 8, 10);
+        Ticket expectedEvent1 = new Ticket("batman dances------------", "testadmin------", 38, 10);
 
         expectedTicketArrayList.add(expectedEvent1);
         expectedUserArrayList.add(testUser1);
@@ -571,14 +576,14 @@ public class BackEndTest {
         assertEquals(true, compareArrayLists(expectedTicketArrayList, expectedUserArrayList));
     }
 
-    @Test //error in daily file input
+    @Test
     public void testParseTransactionsCase5() throws Exception {
-        dailyWriter.write("05_testuser-------_testadmin------000010");
+        dailyWriter.write("05_testuser-------_testadmin-----_000010");
         dailyWriter.close();
 
         initArrayLists();
 
-        User testUser1 = new User("testadmin------", "AA", 500);
+        User testUser1 = new User("testadmin-----", "AA", 500);
         bE.users.add(testUser1);
 
         User testUser2 = new User("testuser-------", "FS", 500);
@@ -589,7 +594,7 @@ public class BackEndTest {
         expectedTicketArrayList.clear();
         expectedUserArrayList.clear();
 
-        User expectedUser1 = new User("testadmin------", "AA", 490);
+        User expectedUser1 = new User("testadmin-----", "AA", 490);
         expectedUserArrayList.add(expectedUser1);
 
         User expectedUser2 = new User("testuser-------", "FS", 510);
@@ -716,20 +721,23 @@ public class BackEndTest {
 
     @Test //not working
     public void testBuyAndUser() throws Exception {
-    Buy testBuy = new Buy();
+        Buy testBuy = new Buy();
         User seller = new User("seller", "AA", 500);
         Ticket event = new Ticket("party", "seller", 50, 50);
         testBuy.apply(seller, event, 3);
         event.printEvent();
         seller.printUser();
 
-        User testUser1 = new User("seller", "AA", 500);
-        expectedUserArrayList.add(testUser1);
+        Ticket testEvent1 = new Ticket("party", "seller", 47, 50);
 
-        Ticket testEvent1 = new Ticket("party", "seller", 50, 47);
-        expectedTicketArrayList.add(testEvent1);
+        boolean eventsEqual;
+            if (event.event == testEvent1.event
+                    && event.seller == testEvent1.seller
+                    && event.tickets == testEvent1.tickets
+                    && event.price == testEvent1.price) eventsEqual = true;
+                else eventsEqual = false;
 
-        assertEquals(true, compareArrayLists(expectedTicketArrayList, expectedUserArrayList));
+        assertEquals(true, eventsEqual);
     }
 
     /**
